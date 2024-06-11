@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lemonada:wght@300..700&display=swap');
+
+.auth-form {
+  display: block;
+  width: 350px;
+}
+
+.community-page{
+  background-color: lightblue;
+  min-height: 100vh;
+}
+
+
+.longInput {
+  width: 750px;
+}
+
+
+
+.updateProfileBtns {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.userInfo {
+  text-align: center;
+  margin-bottom: 40px;
+  color: black;
+}
+
+
+.userInfo p {
+  margin: 5px 0;
+  color: white;
+}
+
+
+.searchBar {
+  border-radius: 10px;
+  border: 2px solid gray;
+}
+
+.avatarContainer {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+}
+
+.avatar-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  
+}
+
+.avatar-select img {
+  height: auto;
+  width: 100%;
+}
+
+.avatar-selected {
+  border: 2px solid lightblue;
+  background-color: lightblue;
+  border-radius: 50%;
+  padding: 1px;
+}
+
+.avatarProfilePic {
+  height: 40px;
+}
+
+
+
+
+
+
+input[type='radio'] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+#profilePage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.btn {
+  margin-top: 20px;
+}
+
+.signUpImg {
+  background-image: url("/bookBackground3.jpg") ;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}

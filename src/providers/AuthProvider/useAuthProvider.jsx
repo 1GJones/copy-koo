@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from "react";
-import { setAccessToken } from "../../utils/api.utils";
+// import { setAccessToken } from "../../utils/api.utils";
 
 import React from 'react'
 
@@ -11,7 +11,7 @@ const initialState = {
   export const SIGNIN = "SIGNIN";
   export const SIGNOUT = "SIGNOUT";
   
-  const reducer = (state, action) => {
+  const authReducer = (state=initialState, action) => {
     switch(action.type) {
       case SIGNIN: {
         return {
@@ -34,16 +34,16 @@ const initialState = {
   
 
 const useAuthProvider = () => {
-    const [state ,dispatch]=useReducer(reducer, initialState)
+    const [state ,dispatch]=useReducer(authReducer, initialState)
 
     useEffect (()=>{
-        const localAuth =JSON.parse(localStorage.getItem("test-auth")) || false;
-    })
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default useAuthProvider
+        const localAuth =JSON.parse(localStorage.getItem("test-auth"))  || null;
+        if (localAuth) {
+          dispatch({ type: "SIGNIN", payload: localAuth.user });
+        }
+      }, []);
+    
+      return { state, dispatch };
+    };
+    
+    export default useAuthProvider;

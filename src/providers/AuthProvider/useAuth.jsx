@@ -1,10 +1,9 @@
 import {useContext} from "react"
 import authContext from "./authContext"
-import { SIGNIN, SIGNOUT } from "./useAuth";
+import { SIGNIN, SIGNOUT } from "./useAuthProvider";
 import { signIn, signUp } from "../../services/auth.services";
-import { setAccessToken } from "../../utils/api.utils";
- import React from 'react'
- 
+// import { setAccessToken } from "../../utils/api.utils";
+
  const useAuth = () => {
   const { state, dispatch } = useContext(authContext);
 
@@ -40,13 +39,13 @@ import { setAccessToken } from "../../utils/api.utils";
   };
 
   const handleSignIn = async (userName, password) => {
-    signIn(userName, password).then((response) => {
+   const response= await signIn(userName, password)
     dispatch({ type: SIGNIN, payload: response.data.user})
-    setAccessToken(response.data.accessToken)
+    // setAccessToken(response.data.accessToken)
     const localAuth = { ...response.data};
     localStorage.setItem('test-auth', JSON.stringify(localAuth))
-  })
   }
+
     
   const handleSignOut = () => {
     dispatch({ type: SIGNOUT})
